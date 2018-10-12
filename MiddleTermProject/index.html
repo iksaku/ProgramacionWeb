@@ -63,12 +63,20 @@
 
                                 <!-- Social Button -->
                                 <div class="top-social-info">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 </div> 
-                                <!-- Sign In Log in button-->
+                                <!-- Sign In Iniciar Sesión button-->
                                 <ul>
-                                        <li><a href="#">log in</a></li>
+                                    <li id="login"><a href="login.html">Iniciar Sesión</a></li>
+                                    <li id="logged" style="display: none">
+                                        <div class="dropdown">
+                                            <button class="btn btn-lg" id="username"></button>
+                                            <div class="dropdown-menu" aria-labelledby="username">
+                                                <a id="logout" class="dropdown-item">Logout</a>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -174,7 +182,7 @@
                                 <p>3:32</p>
                             </div>
                             <div class="buy-tickets">
-                                <a href="#" class="btn musica-btn">Comprar</a>
+                                <a class="btn musica-btn">Comprar</a>
                             </div>
                         </div>
 
@@ -199,7 +207,7 @@
                                 <p>3:34</p>
                             </div>
                             <div class="buy-tickets">
-                                <a href="#" class="btn musica-btn">Comprar</a>
+                                <a class="btn musica-btn">Comprar</a>
                             </div>
                         </div>
 
@@ -224,7 +232,7 @@
                                 <p>2:07</p>
                             </div>
                             <div class="buy-tickets">
-                                <a href="#" class="btn musica-btn">Comprar</a>
+                                <a class="btn musica-btn">Comprar</a>
                             </div>
                         </div>
                         <div class="musica-buttons-area" >
@@ -321,7 +329,7 @@
                                     <h4>Mirrey</h4>
                                 </div>
                                 <div class="album-buy-now">
-                                    <a href="#" class="btn musica-btn">Comprar Canciones</a>
+                                    <a class="btn musica-btn">Comprar Canciones</a>
                                 </div>
                             </div>
 
@@ -451,13 +459,17 @@
             <div class="row">
 
                 <!-- Footer Widget Area -->
-                <div class="col-12 col-md-6 col-xl-3">
+                <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="footer-widget-area mb-100">
-                        <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
-                        <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Pagina hecha con <i class="fa fa-heart-o" aria-hidden="true"></i> por gente cool.
+                        <a><img src="img/core-img/logo2.png" alt=""></a>
+                        <p class="copywrite-text"><a><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            <br>
+                            Todos los derechos reservados
+                            <br>
+                            Pagina hecha con <i class="fa fa-heart-o" aria-hidden="true"></i> por gente cool.
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -476,6 +488,8 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Custom js -->
+    <script src="js/auth.js"></script>
 </body>
 
 </html>
