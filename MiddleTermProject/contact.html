@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>FSW_MUSIC_STORE</title>
+    <title>FSW Music Store</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -58,17 +58,23 @@
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="about-us.html">Nosotros</a></li>
                                     <li><a href="concert-tours.html">Top musical</a></li>
+
+                                    <!-- Sign In Iniciar Sesión button-->
+                                    <li id="login"><a href="login.html">Iniciar Sesión</a></li>
+                                    <li id="logged" class="cn-dropdown-item has-down">
+                                        <a id="username"></a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a onclick="auth.logout();">Cerrar Sesión</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                                 <!-- Social Button -->
                                 <div class="top-social-info">
                                     <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                     <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </div> 
-                                <!-- Sign In Iniciar Sesión button-->
-                                <ul>
-                                    <li id="login"><a href="login.html">Iniciar Sesión</a></li>
-                                    <li id="username" style="display: none"><a></a></li>
-                                </ul>
+                                </div>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -127,7 +133,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
                             <div class="icon">
                                 <img src="img/core-img/smartphone.png" alt="">
                             </div>
-                            <h6>FSW.MUSIC@gmail.com</h6>
+                            <h6>music@fsw.com</h6>
                         </div>
 
                         <!-- Contact Social Info -->
@@ -314,7 +320,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- Custom js -->
-    <script src="js/auth.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>

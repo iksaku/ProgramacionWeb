@@ -56,19 +56,25 @@
                             <ul>
                                 <li><a href="index.html">Inicio</a></li>
                                 <li><a href="about-us.html">Nosotros</a></li>
-¿                                <li><a href="contact.html">Conctacto</a></li>
+                                <li><a href="contact.html">Conctacto</a></li>
+
+                                <!-- Sign In Iniciar Sesión button-->
+                                <li id="login"><a href="login.html">Iniciar Sesión</a></li>
+                                <li id="logged" class="cn-dropdown-item has-down">
+                                    <a id="username"></a>
+                                    <ul class="dropdown">
+                                        <li>
+                                            <a onclick="auth.logout();">Cerrar Sesión</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
 
                             <!-- Social Button -->
                             <div class="top-social-info">
                                 <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            </div> 
-                            <!-- Sign In Iniciar Sesión button-->
-                            <ul>
-                                <li id="login"><a href="login.html">Iniciar Sesión</a></li>
-                                <li id="username" style="display: none"><a></a></li>
-                            </ul>
+                            </div>
                          </div>
                         <!-- Nav End -->
                         </div>
@@ -475,7 +481,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- Custom js -->
-    <script src="js/auth.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>

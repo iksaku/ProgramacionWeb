@@ -9,13 +9,15 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>FSW_MUSIC_STORE</title>
+    <title>FSW Music Store</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
 
 </head>
 
@@ -55,10 +57,20 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Inicio</a></li>
                                     <li><a href="about-us.html">Nosotros</a></li>
                                     <li><a href="concert-tours.html">Top musical</a></li>
                                     <li><a href="contact.html">Conctacto</a></li>
+                                    
+                                    <!-- Sign In Iniciar Sesión button-->
+                                    <li id="login"><a href="login.html">Iniciar Sesión</a></li>
+                                    <li id="logged" class="cn-dropdown-item has-down">
+                                        <a id="username"></a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a onclick="auth.logout();">Cerrar Sesión</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
 
                                 <!-- Social Button -->
@@ -66,18 +78,6 @@
                                     <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                     <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 </div> 
-                                <!-- Sign In Iniciar Sesión button-->
-                                <ul>
-                                    <li id="login"><a href="login.html">Iniciar Sesión</a></li>
-                                    <li id="logged" style="display: none">
-                                        <div class="dropdown">
-                                            <button class="btn btn-lg" id="username"></button>
-                                            <div class="dropdown-menu" aria-labelledby="username">
-                                                <a id="logout" class="dropdown-item">Logout</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -137,7 +137,7 @@
 
         <!-- Slide Down -->
         <div class="slide-down" id="scrollDown">
-            <h6>Desliza</h6>
+            <h6>&langle;&langle;&langle; Desliza &rangle;&rangle;&rangle;</h6>
             <div class="line"></div>
         </div>
     </section>
@@ -476,6 +476,14 @@
         </div>
     </footer>
 
+    <div class="shoppingCart dropup">
+        <button class="btn btn-xl btn-default btn-circle">
+            <span class="fa fa-shopping-cart"></span>
+        </button>
+
+        <ul class="dropdown-menu"></ul>
+    </div>
+
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -489,7 +497,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- Custom js -->
-    <script src="js/auth.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>
