@@ -65,9 +65,9 @@ class Store {
 
     showCart() {
         if (this.hasItemsInCart) {
-            // TODO: Show shopping cart
+            $(".shoppingCart").show();
         } else {
-            // TODO: Hide shopping cart
+            $(".shoppingCart").hide();
         }
     }
 
