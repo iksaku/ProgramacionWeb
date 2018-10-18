@@ -137,7 +137,9 @@ class Store {
     */
 
     buy() {
-        this.emptyCart();
+        if (auth.isLogged) {
+            this.emptyCart();
+        }
         this.redirect();
     }
 }
