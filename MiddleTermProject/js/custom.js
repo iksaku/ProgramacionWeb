@@ -27,22 +27,22 @@ class Auth {
         return atob(this.storage.getItem("name"));
     }
 
-    get redirect() {
-         return getBasePath() + "/index.html";
-    }
-
     get isLogged() {
         return this.storage.getItem("name") !== null;
     }
 
+    redirect() {
+        window.location.href =  getBasePath() + "/index.html";
+    }
+
     login() {
         this.storage.setItem("name", btoa($("#loginName").val()));
-        window.location.href = this.redirect;
+        this.redirect();
     }
 
     logout() {
         this.storage.removeItem("name");
-        window.location.href = this.redirect;
+        this.redirect()
     }
 }
 
@@ -59,10 +59,6 @@ class Store {
         this.showCart();
     }
 
-    get redirect() {
-        return getBasePath() + "/buy.html";
-    }
-
     get hasItemsInCart() {
         return this.cart.length > 0;
     }
@@ -70,6 +66,10 @@ class Store {
     get cart() {
         var cart = this.storage.getItem("cart");
         return cart == null ? [] : JSON.parse(this.storage.getItem("cart"));
+    }
+
+    redirect() {
+        window.location.href =  getBasePath() + "/buy.html";
     }
 
     showCart() {
@@ -124,6 +124,7 @@ class Store {
         this.showCart();
     }
 
+    /** TODO... Altough, I think this will not be implemented anyways   
     removeFromCart(item) {
         var cart = this.cart;
         
@@ -133,10 +134,11 @@ class Store {
 
         if (cart.length < 0) this.emptyCart();
     }
+    */
 
     buy() {
         this.emptyCart();
-        // TODO: Redirect
+        this.redirect();
     }
 }
 

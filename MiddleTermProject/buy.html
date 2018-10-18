@@ -88,12 +88,20 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb-area bg-img bg-overlay2" style="background-image: url(img/bg-img/breadcumb4.jpg);">
         <div class="bradcumbContent">
-            <h2>TO-DO</h2>
+            <h2>¡Compra Realizada!</h2>
         </div>
     </div>
     <!-- bg gradients -->
     <div class="bg-gradients"></div>
     <!-- ##### Breadcumb Area End ##### -->
+    
+    <section class="contact-area mt-30 section-padding-100-0">
+        <div class="content">
+            <div class="text-center">
+                <span class="fa fa-check fa-5x" id="check"></span>
+            </div>
+        </div>
+    </section>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -108,6 +116,14 @@
     <script src="js/active.js"></script>
     <!-- Custom js -->
     <script src="js/custom.js"></script>
+
+    <script>
+        $(function() {
+            if (!auth.isLogged) {
+                window.location.href = getBasePath() + "/login.html";
+            }
+        });
+    </script>
 </body>
 
 </html>
