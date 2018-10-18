@@ -59,7 +59,7 @@
                                 <ul>
                                     <li><a href="about-us.html">Nosotros</a></li>
                                     <li><a href="concert-tours.html">Top musical</a></li>
-                                    <li><a href="contact.html">Conctacto</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
                                     
                                     <!-- Sign In Iniciar Sesión button-->
                                     <li id="login"><a href="login.html">Iniciar Sesión</a></li>
@@ -476,12 +476,13 @@
         </div>
     </footer>
 
-    <div class="shoppingCart dropup">
-        <button class="btn btn-xl btn-default btn-circle">
-            <span class="fa fa-shopping-cart"></span>
-        </button>
-
-        <ul class="dropdown-menu"></ul>
+    <div class="shoppingCart">
+        <div class="dropup">
+            <button class="btn btn-xl btn-default btn-circle dropdown-toggle" type="button" id="cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="fa fa-shopping-cart"></span>
+            </button>
+            <div id="cart-menu" class="dropdown-menu" aria-labelledby="cart"></div>
+        </div>
     </div>
 
 

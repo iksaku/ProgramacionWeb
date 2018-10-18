@@ -1,3 +1,10 @@
+function getBasePath() {
+    var actualPath = window.location.href;
+    var parts = actualPath.split("/");
+    parts.pop();
+    return parts.join("/")
+}
+
 class Auth {
     constructor() {
         this.storage = window.localStorage;
@@ -21,10 +28,7 @@ class Auth {
     }
 
     get redirect() {
-        var actualPath = window.location.href;
-        var parts = actualPath.split("/");
-        parts.pop();
-        return parts.join("/") + "/index.html";
+         return getBasePath() + "/index.html";
     }
 
     get isLogged() {
@@ -55,19 +59,41 @@ class Store {
         this.showCart();
     }
 
+    get redirect() {
+        return getBasePath() + "/buy.html";
+    }
+
     get hasItemsInCart() {
         return this.cart.length > 0;
     }
 
     get cart() {
-        return this.storage.getItem("cart") || [];
+        var cart = this.storage.getItem("cart");
+        return cart == null ? [] : JSON.parse(this.storage.getItem("cart"));
     }
 
     showCart() {
+        let shoppingCart = $(".shoppingCart");
         if (this.hasItemsInCart) {
-            $(".shoppingCart").show();
+            let menu = $("#cart-menu");
+            menu.empty();
+
+            for (var item of this.cart.values()) {
+                menu.append(
+                    $("<button>").addClass("dropdown-item").text(item.name)
+                )
+            }
+
+            menu.append(
+                $("<div>").addClass("dropdown-divider"),
+                $("<button>").addClass("dropdown-item").text("Comprar").on('click', function() {
+                    store.buy();
+                })
+            )
+
+            shoppingCart.show();
         } else {
-            $(".shoppingCart").hide();
+            shoppingCart.hide();
         }
     }
 
@@ -81,10 +107,19 @@ class Store {
         var data = item.parent().parent().find(".shows-name");
         var name = data.find("h6").text();
         var artist = data.find("p").text();
+
+        var isPresent = false;
+        for (var item of cart) {
+            if (item.name == name && item.artist == artist) {
+                isPresent = true;
+                break;
+            }
+        }
         
-        cart.push({name, artist})
-        
-        this.storage.setItem("cart", cart);
+        if (!isPresent) {
+            cart.push({name, artist});
+            this.storage.setItem("cart", JSON.stringify(cart));
+        }
         
         this.showCart();
     }
@@ -97,6 +132,11 @@ class Store {
         this.storage.setItem("cart", cart);
 
         if (cart.length < 0) this.emptyCart();
+    }
+
+    buy() {
+        this.emptyCart();
+        // TODO: Redirect
     }
 }
 
