@@ -19,7 +19,7 @@
     line-height: 1.42857;
 }
 
-.btn-circle.btn-xl {
+.btn-circle .btn-xl {
     width: 70px;
     height: 70px;
     padding: 10px 16px;
