@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programación Web Repo</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/fontawesome.css" integrity="sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0" crossorigin="anonymous">
+</head>
+
+<body>
+<div id="app">
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Programación Web</strong>
+                </a>
+                <a href="https://github.com/iksaku/ProgramacionWeb" type="button" class="btn btn-secondary">
+                    Ver en Github
+                    <span class="fab fa-github"></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Programación Web</h1>
+                <p class="lead text-muted">Repo creado para la clase cursada con el profesor Hazael Mojica (Agosto-Diciembre 2018)</p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <homework v-for="(hw, index) in homeworks" :key="index"  v-bind="hw" :url="subURL(hw.url)"></homework>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+            <p>New to Bootstrap? <a href="https://getbootstrap.com">Visit the homepage</a> or read our <a href="/docs/4.2/getting-started/introduction/">getting started guide</a>.</p>
+        </div>
+    </footer>
+</div>
+
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.slim.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue@2.5.22/dist/vue.min.js"></script>
+
+<script>
+    Vue.component('homework', {
+        props: ['name', 'description', 'url'],
+        template: `
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ name }}</h5>
+                        <p class="card-text">{{ description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a :href="url" target="_blank" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    });
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            homeworks: [
+                {
+                    name: 'Homework 2',
+                    description: '',
+                    url: '/Homework2'
+                },
+                {
+                    name: 'Homework 4',
+                    description: '',
+                    url: '/Homework4'
+                },
+                {
+                    name: 'Homework 6',
+                    description: '',
+                    url: '/Homework6'
+                },
+                {
+                    name: 'Middle Term Project',
+                    description: '',
+                    url: '/MiddleTermProject'
+                }
+            ]
+        },
+        methods: {
+            subURL(subPath) {
+                let actualPath = window.location.pathname;
+                if (actualPath[-1] !== '/') {
+                    let parts = actualPath.split("/");
+                    parts.shift();
+                    parts.pop();
+                    actualPath = window.location.protocol + '//' + window.location.host + '/' + parts.join("/");
+                }
+                return actualPath + subPath
+            }
+        }
+    });
+</script>
+</body>
+</html>

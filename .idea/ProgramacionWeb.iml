@@ -17,5 +17,7 @@
     <orderEntry type="library" name="jqBootstrapValidation" level="application" />
     <orderEntry type="library" name="contact_me" level="application" />
     <orderEntry type="library" name="freelancer" level="application" />
+    <orderEntry type="library" name="jquery.slim" level="application" />
+    <orderEntry type="library" name="vue" level="application" />
   </component>
 </module>
